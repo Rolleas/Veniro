@@ -3,6 +3,7 @@ package com.veniro.entity;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import javax.management.relation.Role;
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -26,6 +27,12 @@ public class UserEntity {
 
     @Column(name="password")
     private String password;
+
+    @Column(name="role")
+    private String role;
+
+    @OneToOne(mappedBy = "name")
+    private RoleEntity roleEntity;
 
     @Override
     public boolean equals(Object o) {
